@@ -9,15 +9,34 @@ const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
     <h1>Hi people</h1>
-    <div>
-      {
-        data.products.edges.map(({ node: product }) => (
-          <div key={product.id}>
-            <p>{product.name}</p>
-            <p>{product.ahora}</p>
-          </div>
-        ))
-      }
+    <a href="#" className="Header__summary snipcart-summary snipcart-checkout">
+            <div className="Header__summary__title">
+                🛍 MY CART 🛍
+            </div>
+            <div className="Header__summary__line">
+                Number of items: <span className="snipcart-total-items"></span>
+            </div>
+            <div className="Header__summary__line">
+                Total price: <span className="snipcart-total-price"></span>
+            </div>
+        </a>
+    <div className="Catalogue">
+    {
+      data.products.edges.map(({ node: product }) => (
+        <div className="Catalogue__item" key={product.id}>
+          <a
+            href="#"
+            className="Product snipcart-add-item"
+            data-item-id={product.id}
+            data-item-price={product.price}
+            data-item-name={product.name}
+            data-item-url={`/`}
+          >
+            click
+          </a>
+        </div>
+      ))
+    }
     </div>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
@@ -46,6 +65,7 @@ export const query = graphql`
           id
           name
           ahora
+          price
         }
       }
     }

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Jerocam Shop`,
+    description: `It is my first snipcart-gatsby- DatoCMS website development!`,
     author: `@gatsbyjs`,
   },
   flags: {
@@ -38,6 +38,14 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
+    `gatsby-plugin-sass`,
+    {
+			resolve: 'gatsby-plugin-snipcart',
+			options: {
+				apiKey: 'MGZkNzIzNzAtOWM5Mi00ZjUyLWJjZTgtNTE3NzM1YjQzODlmNjM3NTIyMjI0MjU1NjI5MjI0',
+        autopop:true
+			}
+		}
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
